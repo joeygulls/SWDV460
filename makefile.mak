@@ -1,18 +1,13 @@
-CC=gcc 
-CFLAGS=-Wall
-LIB= ./libxml2-2.7.8.win32/libxml2
-INCLUDE= ./libxml2-2.7.8.win32/include
+HEADERS=program.h headers.h
 
-all: binary assembly
+default:HelloWorld
 
-binary: $(SOURCE)
-	$(CC) $(CFLAGS) $(SOURCE) $(LIB) $(INCLUDE)
+HelloWorld.o: HelloWorld.c $(HEADERS)
+	gcc -c HelloWorld.c -o HelloWorld.o
 
-assembly: $(SOURCE)
-	$(CC) $(CFLAGS) -fverbose-asm -S -masm=intel $(SOURCE)
+HelloWorld: HelloWorld.o
+	gcc HelloWorld.o -o HelloWorld
 
 clean:
-	    rm -f books books.o
-
-
-
+	-rm -f HelloWorld.o
+	-rm -f HelloWorld
