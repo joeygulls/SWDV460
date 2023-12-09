@@ -1,13 +1,11 @@
-HEADERS=program.h headers.h
+default:helloworld
 
-default:HelloWorld
+helloworld.o: helloworld.c $(HEADERS)
+	gcc -c helloworld.c -o helloworld.o
 
-HelloWorld.o: HelloWorld.c $(HEADERS)
-	gcc -c HelloWorld.c -o HelloWorld.o
-
-HelloWorld: HelloWorld.o
-	gcc HelloWorld.o -o HelloWorld
+helloworld: helloworld.o
+	gcc helloworld.o -o helloworld
 
 clean:
-	-rm -f HelloWorld.o
-	-rm -f HelloWorld
+	-rm -f helloworld.o
+	-rm -f helloworld
