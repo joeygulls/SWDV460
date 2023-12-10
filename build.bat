@@ -3,3 +3,5 @@ echo %PATH%
 dir
 make 
 helloworld
+
+echo 'job finished'
